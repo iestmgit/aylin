@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>وبلاگ ایلین ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: #0b0b0b;
+            color: #e0d6f0;
+            line-height: 1.8;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .blog-container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(30, 10, 40, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 50px 20px 50px 20px;
+            padding: 40px 35px;
+            box-shadow: 0 20px 40px rgba(120, 40, 200, 0.4),
+                        0 0 0 2px #6a1b8a inset,
+                        0 0 0 4px #2d0a3a inset;
+            border: 1px solid #9b4dca;
+            transition: all 0.3s ease;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px dashed #9b4dca;
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #c084e0, #5a1a7a, #2d0a3a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px #9b4dca88, 0 4px 10px #1f002b;
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #c9a8e6;
+            background: #1f0a2b;
+            display: inline-block;
+            padding: 6px 30px;
+            border-radius: 60px;
+            margin-top: 10px;
+            border: 1px solid #8a3bb8;
+            box-shadow: 0 0 15px #6a1b8a66;
+        }
+
+        .header .emoji-deco {
+            font-size: 2.2rem;
+            display: block;
+            margin-top: 5px;
+            letter-spacing: 12px;
+        }
+
+        .profile-card {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            background: #1d0a28cc;
+            border-radius: 40px 10px 40px 10px;
+            padding: 25px 30px;
+            margin-bottom: 35px;
+            border-right: 6px solid #9b4dca;
+            border-bottom: 6px solid #6a1b8a;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 8px 0 #2d0a3a;
+        }
+
+        .profile-avatar {
+            font-size: 6rem;
+            background: #2d0a3a;
+            padding: 15px 25px;
+            border-radius: 70% 30% 70% 30% / 30% 70% 30% 70%;
+            border: 4px solid #b77ae0;
+            box-shadow: 0 0 30px #a055d0;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .profile-info h2 {
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: #dbb8ff;
+            text-shadow: 0 0 15px #a055d0;
+        }
+
+        .profile-info p {
+            font-size: 1.2rem;
+            margin: 8px 0 4px;
+        }
+
+        .profile-info .highlight {
+            color: #c084e0;
+            font-weight: 700;
+            background: #2d0a3a;
+            padding: 0 12px;
+            border-radius: 30px;
+            border: 1px solid #9b4dca;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #1f0a2b;
+            padding: 6px 18px;
+            border-radius: 60px;
+            margin: 5px 5px 0 0;
+            font-size: 0.95rem;
+            border: 1px solid #7a2ca0;
+            color: #d2b0ed;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #dbb8ff;
+            margin: 40px 0 15px 0;
+            padding-right: 15px;
+            border-right: 8px solid #9b4dca;
+            text-shadow: 0 0 10px #7a2ca0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title span {
+            font-size: 2.5rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        .card {
+            background: #14091ecc;
+            backdrop-filter: blur(4px);
+            padding: 22px 20px;
+            border-radius: 30px 10px 30px 10px;
+            border: 1px solid #6a1b8a;
+            box-shadow: 0 6px 0 #2d0a3a, 0 0 20px #4d147066;
+            transition: transform 0.2s ease, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 0 #2d0a3a, 0 0 40px #9b4dca88;
+            border-color: #b77ae0;
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            color: #dbb8ff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card ul, .card p {
+            list-style: none;
+            padding-right: 5px;
+        }
+
+        .card li {
+            padding: 8px 0;
+            border-bottom: 1px dotted #4d1470;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card li:last-child {
+            border-bottom: none;
+        }
+
+        .card .emoji-big {
+            font-size: 1.8rem;
+        }
+
+        .dream-box {
+            background: linear-gradient(145deg, #1d0a28, #0e0418);
+            border-radius: 60px 10px 60px 10px;
+            padding: 30px 35px;
+            margin-top: 20px;
+            border: 2px solid #9b4dca;
+            box-shadow: 0 0 40px #6a1b8a55, inset 0 0 60px #3d0f4e33;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dream-text {
+            flex: 2;
+            min-width: 200px;
+        }
+
+        .dream-text h3 {
+            font-size: 2.2rem;
+            color: #e6caff;
+        }
+
+        .dream-text p {
+            font-size: 1.2rem;
+            color: #c9a8e6;
+        }
+
+        .dream-emoji {
+            font-size: 5rem;
+            background: #2d0a3a;
+            padding: 10px 25px;
+            border-radius: 80% 20% 80% 20%;
+            border: 3px solid #b77ae0;
+            box-shadow: 0 0 30px #a055d0;
+        }
+
+        .footer {
+            margin-top: 45px;
+            text-align: center;
+            font-size: 1rem;
+            color: #a07ab0;
+            border-top: 2px solid #3d1a4a;
+            padding-top: 25px;
+            letter-spacing: 1px;
+        }
+
+        .footer .hearts {
+            color: #c084e0;
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 650px) {
+            .blog-container { padding: 25px 18px; }
+            .header h1 { font-size: 2.8rem; }
+            .profile-card { flex-direction: column; text-align: center; }
+            .profile-avatar { font-size: 4rem; }
+            .dream-box { flex-direction: column; text-align: center; gap: 15px; }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="blog-container">
+
+    <!-- هدر -->
+    <header class="header">
+        <h1>✦ ایلین ✦</h1>
+        <div class="subtitle">وبلاگ شخصی</div>
+        <div class="emoji-deco">🖤 💜 🖤 💜</div>
+    </header>
+
+    <!-- کارت معرفی -->
+    <section class="profile-card">
+        <div class="profile-avatar">👩🏻‍🏫</div>
+        <div class="profile-info">
+            <h2>ایلین · ۱۶ ساله</h2>
+            <p>
+                <span class="highlight">🖤</span> عاشق رنگ مشکی
+                <span class="highlight">💜</span> و بنفش
+            </p>
+            <p>
+                🌟 دانش‌آموز دوره دبیرستان، آرزو دارم که 
+                <strong style="color:#c084e0;">معلم</strong> 
+                بشوم و الهام‌بخش باشم.
+            </p>
+            <div style="margin-top: 12px;">
+                <span class="tag">📚 کتاب‌خوانی</span>
+                <span class="tag">🎨 خلاقیت</span>
+                <span class="tag">🧠 خودسازی</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- سرگرمی‌ها -->
+    <h2 class="section-title"><span>🌸</span> سرگرمی‌های مورد علاقه</h2>
+    <div class="content-grid">
+        <div class="card">
+            <h3>📖 کتاب‌خوانی</h3>
+            <ul>
+                <li><span class="emoji-big">📘</span> رمان‌های تخیلی</li>
+                <li><span class="emoji-big">🧪</span> کتاب‌های علمی</li>
+                <li><span class="emoji-big">🌌</span> فلسفه و روانشناسی</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>🎨 هنر</h3>
+            <ul>
+                <li><span class="emoji-big">🖌️</span> نقاشی با آبرنگ</li>
+                <li><span class="emoji-big">✍️</span> نوشتن جملات کوتاه</li>
+                <li><span class="emoji-big">🎵</span> موسیقی آرام</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>🧘 خودمراقبتی</h3>
+            <ul>
+                <li><span class="emoji-big">🌱</span> مدیتیشن و یوگا</li>
+                <li><span class="emoji-big">🗣️</span> یادگیری زبان جدید</li>
+                <li><span class="emoji-big">💭</span> برنامه‌ریزی برای آینده</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- آرزوی بزرگ -->
+    <h2 class="section-title"><span>🌟</span> آرزوی بزرگ من</h2>
+    <div class="dream-box">
+        <div class="dream-text">
+            <h3>👩🏻‍🏫 معلم آینده</h3>
+            <p>
+                ایلین معتقد است که آموزش کلید تغییر جهان است. 
+                آرزو دارد که جلوی دانش‌آموزانش بایستد، 
+                با عشق دانش را منتقل کند و هر جلسه را به یک ماجراجویی جذاب تبدیل کند.
+                <br />
+                <span style="color: #b77ae0; font-weight: 700;">
+                    «معلمی خواهم بود که الهام‌بخش است، نه فقط آموزش‌دهنده.»
+                </span>
+            </p>
+        </div>
+        <div class="dream-emoji">📚✨</div>
+    </div>
+
+    <!-- حقایق سریع -->
+    <h2 class="section-title"><span>⚡</span> درباره ایلین</h2>
+    <div class="content-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px,1fr));">
+        <div class="card" style="text-align:center;">
+            <div style="font-size:3rem;">🖤</div>
+            <p style="font-weight:700; color:#dbb8ff;">رنگ مورد علاقه</p>
+            <p>مشکی و بنفش</p>
+        </div>
+        <div class="card" style="text-align:center;">
+            <div style="font-size:3rem;">📅</div>
+            <p style="font-weight:700; color:#dbb8ff;">سن</p>
+            <p>۱۶ سال</p>
+        </div>
+        <div class="card" style="text-align:center;">
+            <div style="font-size:3rem;">🎯</div>
+            <p style="font-weight:700; color:#dbb8ff;">هدف</p>
+            <p>معلم الهام‌بخش</p>
+        </div>
+        <div class="card" style="text-align:center;">
+            <div style="font-size:3rem;">💜</div>
+            <p style="font-weight:700; color:#dbb8ff;">شعار</p>
+            <p>با علم اوج می‌گیریم</p>
+        </div>
+    </div>
+
+    <!-- فوتر -->
+    <footer class="footer">
+        <p>
+            <span class="hearts">🖤 💜</span> 
+            وبلاگ ایلین — تمام حقوق محفوظ است © ۲۰۲۶
+            <span class="hearts">💜 🖤</span>
+        </p>
+        <p style="font-size:0.9rem; opacity:0.7;">
+            ساخته شده با عشق برای بهترین معلم آینده 🌙
+        </p>
+    </footer>
+
+</div>
+
+</body>
+</html>
